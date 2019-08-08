@@ -102,10 +102,10 @@ score=0
 top_Score=0
 
 #SET UP THE MUSIC
-gameOver_Sound=pygame.mixer.Sound('gameover.wav')
-score_Sound=pygame.mixer.Sound('score.wav')
-congratulations_Sound=pygame.mixer.Sound('Congratulations Sound.wav')
-pygame.mixer.music.load('Background.wav')
+gameOver_Sound=pygame.mixer.Sound('sounds/gameover.wav')
+score_Sound=pygame.mixer.Sound('sounds/score.wav')
+congratulations_Sound=pygame.mixer.Sound('sounds/Congratulations Sound.wav')
+pygame.mixer.music.load('sounds/Background.wav')
 pygame.mixer.music.play(-1,0.0)
 music_Playing=True
 
