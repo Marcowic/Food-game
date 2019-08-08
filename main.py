@@ -57,7 +57,7 @@ mainClock=pygame.time.Clock()
 
 #SET UP THE WINDOW
 window_Surface=pygame.display.set_mode((Window_Width,Window_Height))
-pygame.display.set_caption("Test Game!")
+pygame.display.set_caption("Food Game")
 
 #SET UP THE FONTS
 font=pygame.font.SysFont(None,48)
@@ -102,12 +102,12 @@ score=0
 top_Score=0
 
 #SET UP THE MUSIC
-#gameOver_Sound=pygame.mixer.Sound('gameover.wav')
-#score_Sound=pygame.mixer.Sound('score.wav')
-#congratulations_Sound=pygame.mixer.Sound('Congratulations Sound.wav')
-#pygame.mixer.music.load('Background.wav')
-#pygame.mixer.music.play(-1,0.0)
-#music_Playing=True
+gameOver_Sound=pygame.mixer.Sound('gameover.wav')
+score_Sound=pygame.mixer.Sound('score.wav')
+congratulations_Sound=pygame.mixer.Sound('Congratulations Sound.wav')
+pygame.mixer.music.load('Background.wav')
+pygame.mixer.music.play(-1,0.0)
+music_Playing=True
 
 #MAIN GAME LOOP
 while True:
@@ -242,7 +242,7 @@ while True:
         if player.colliderect(block):                       #Conditon if the "player" object collides with the object "block" object (proves True)
             food.remove(block)                              #The specific block which has collided with the player will be removed from the list and not drawn onto the window anymore
             score=score+1                                   #The score counter is increased by 1        READ:::::Win Condition:::::
-            # score_Sound.play()                              #A specific sound will play
+            score_Sound.play()                              #A specific sound will play
         else:                                               #If no "block" object has collided with the player
             pygame.draw.rect(window_Surface,GREEN,block)    #Keep drawing all the "block" objects in the list (food)
 
@@ -254,9 +254,9 @@ while True:
             drawText("GAME OVER-YOU LOST",font,window_Surface,(60),(100))
             drawText('Your Final Score is: %s' %(score),font,window_Surface,(85),(200))
             drawText('Press any key to quit.',font,window_Surface,(85),(300))
-            # pygame.mixer.music.stop()
+            pygame.mixer.music.stop()
             pygame.display.update()
-            # gameOver_Sound.play()
+            gameOver_Sound.play()
             Player_Press_Key()
             terminate()
 
@@ -280,9 +280,9 @@ while True:
         drawText("YOU WIN!",font,window_Surface,(170),(100))
         drawText("You have collected",font,window_Surface,(90),(200))
         drawText("all the green blocks!",font,window_Surface,(90),(250))
-        drawText("Press any key to end",font,window_Surface,(80),(400))
-        # pygame.mixer.music.stop()
-        # congratulations_Sound.play()
+        drawText("Press any key to exit",font,window_Surface,(80),(400))
+        pygame.mixer.music.stop()
+        congratulations_Sound.play()
         pygame.display.update()
         Player_Press_Key()
         terminate()
